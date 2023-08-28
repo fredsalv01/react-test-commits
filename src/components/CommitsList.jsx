@@ -35,6 +35,7 @@ const CommitsList = ({ commits }) => {
             <div className="text-left capitalize">
               <a
                 href={commit.url}
+                target="_blank"
                 className="cursor-pointer underline underline-offset-4"
               >
                 <span className="text-gray-400 hover:text-indigo-500 text-right">
