@@ -11,6 +11,7 @@ Consideraciones:
 
 - react 18
 - nodejs v16.20.0
+Este proyecto no tiene conexion mediante sockets por lo cual se debera de recargar el aplicativo para poder obtener los ultimos commits del proyecto.
 
 En la terminal de tu pc dirigirte a donde deseas guardar el proyecto y pegar el siguiente comando:
 
