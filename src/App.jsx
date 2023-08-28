@@ -1,105 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CommitsList from "./components/CommitsList";
+import Loading from "./components/Loading";
 
 const App = () => {
-  const [commits, setCommits] = React.useState([
-    {
-      id: "ab7dc07eca57c8062e4e25de6273a078a23cdeba",
-      message: "fix: find all response with commit entity",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/ab7dc07eca57c8062e4e25de6273a078a23cdeba",
-      date: "2023-08-28T22:02:23Z",
-    },
-    {
-      id: "51517d741efefda62e31122e679e91be4f443977",
-      message: "fix: using only get all flow",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/51517d741efefda62e31122e679e91be4f443977",
-      date: "2023-08-28T22:01:46Z",
-    },
-    {
-      id: "32dc27c07ddf91457b98ac9f4e6cc27f06a7dde1",
-      message: "changes in repo backend",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/32dc27c07ddf91457b98ac9f4e6cc27f06a7dde1",
-      date: "2023-08-28T21:54:28Z",
-    },
-    {
-      id: "d109c3268eecaa5591aaba74a42cf1519408d50a",
-      message: "first commit",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/d109c3268eecaa5591aaba74a42cf1519408d50a",
-      date: "2023-08-28T20:36:48Z",
-    },
-    {
-      id: "ab7dc07eca57c8062e4e25de6273a078a23cdeba",
-      message: "fix: find all response with commit entity",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/ab7dc07eca57c8062e4e25de6273a078a23cdeba",
-      date: "2023-08-28T22:02:23Z",
-    },
-    {
-      id: "51517d741efefda62e31122e679e91be4f443977",
-      message: "fix: using only get all flow",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/51517d741efefda62e31122e679e91be4f443977",
-      date: "2023-08-28T22:01:46Z",
-    },
-    {
-      id: "32dc27c07ddf91457b98ac9f4e6cc27f06a7dde1",
-      message: "changes in repo backend",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/32dc27c07ddf91457b98ac9f4e6cc27f06a7dde1",
-      date: "2023-08-28T21:54:28Z",
-    },
-    {
-      id: "d109c3268eecaa5591aaba74a42cf1519408d50a",
-      message: "first commit",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/d109c3268eecaa5591aaba74a42cf1519408d50a",
-      date: "2023-08-28T20:36:48Z",
-    },
-    {
-      id: "ab7dc07eca57c8062e4e25de6273a078a23cdeba",
-      message: "fix: find all response with commit entity",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/ab7dc07eca57c8062e4e25de6273a078a23cdeba",
-      date: "2023-08-28T22:02:23Z",
-    },
-    {
-      id: "51517d741efefda62e31122e679e91be4f443977",
-      message: "fix: using only get all flow",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/51517d741efefda62e31122e679e91be4f443977",
-      date: "2023-08-28T22:01:46Z",
-    },
-    {
-      id: "32dc27c07ddf91457b98ac9f4e6cc27f06a7dde1",
-      message: "changes in repo backend",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/32dc27c07ddf91457b98ac9f4e6cc27f06a7dde1",
-      date: "2023-08-28T21:54:28Z",
-    },
-    {
-      id: "d109c3268eecaa5591aaba74a42cf1519408d50a",
-      message: "first commit",
-      author: "Freddy Morales",
-      url: "https://github.com/fredsalv01/github-commits-test/commit/d109c3268eecaa5591aaba74a42cf1519408d50a",
-      date: "2023-08-28T20:36:48Z",
-    },
-  ]);
+  const [commits, setCommits] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // const fetchCommits = async () => {
-  //   const response = await fetch("http://localhost:3000/api/v1/commits");
-  //   const data = await response.json();
-  //   setCommits(data);
-  // };
+  const fetchCommits = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("http://localhost:3000/api/v1/commits");
+      const data = await response.json();
+      setCommits(data);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  // React.useEffect(() => {
-  //   fetchCommits();
-  // }, []);
-
-  // console.log(commits);
+  useEffect(() => {
+    fetchCommits();
+  }, []);
 
   return (
     <div className="bg-white w-[1440px] mx-auto">
@@ -125,9 +48,19 @@ const App = () => {
         </p>
       </div>
 
-      <div className="text-center mt-10">
-        <CommitsList commits={commits} />
-      </div>
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <div className="text-center mt-10">
+          <p className="text-red-500 font-semibold">
+            There was an error, please try again later 😥
+          </p>
+        </div>
+      ) : (
+        <div className="text-center mt-10">
+          <CommitsList commits={commits} />
+        </div>
+      )}
     </div>
   );
 };

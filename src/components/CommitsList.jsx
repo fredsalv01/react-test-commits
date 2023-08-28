@@ -24,6 +24,7 @@ const CommitsList = ({ commits }) => {
                   hour: "numeric",
                   minute: "numeric",
                   second: "numeric",
+                  hour12: true,
                 })
                 .replace("a. m.", "AM")}
             </div>
