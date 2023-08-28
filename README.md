@@ -1,8 +1,31 @@
-# React + Vite
+# React Test Commits
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto desarrollado como parte de un test tecnico fullstack
+se utilizaron las tecnologias de react, tailwindcss y axios para un ejemplo practico
 
-Currently, two official plugins are available:
+Tomar en consideracion los siguientes pasos para instalar esta parte del frontend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Instalacion
+
+Consideraciones:
+
+- react 18
+- nodejs v16.20.0
+
+En la terminal de tu pc dirigirte a donde deseas guardar el proyecto y pegar el siguiente comando:
+
+```bash
+  git clone https://github.com/fredsalv01/react-test-commits
+```
+
+una vez descargado el proyecto se debera de dirigir a la raiz del proyecto y utilizar el siguiente comando en su terminal:
+
+```bash
+  npm install
+```
+
+habiendo realizado estos pasos solo resta utilizar el siguiente comando para ejecutar el proyecto de react en su entorno local:
+
+```
+  npm run dev
+```
