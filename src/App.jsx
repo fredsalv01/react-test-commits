@@ -25,14 +25,14 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-white w-[1440px] mx-auto">
+    <div className="bg-white w-full md:w-[98vw] lg:w-[90vw] mx-auto">
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-center mt-10 mb-5 text-2xl sm:text-3xl  font-semibold">
+        <h1 className="text-center mt-10 mb-5 text-xl md:text-3xl  font-semibold">
           React 18 <span className="text-purple-400">Github</span>Commits App
         </h1>
         <img src="/github-logo.png" className="w-12 h-12" alt="" />
 
-        <p className="text-center mt-5 text-sm sm:text-base">
+        <p className="text-center mt-5 text-sm md:text-base">
           This is a demo app to show the{" "}
           <span className="font-semibold">all commits</span> from this
           particular repository{" "}
@@ -58,7 +58,13 @@ const App = () => {
         </div>
       ) : (
         <div className="text-center mt-10">
-          <CommitsList commits={commits} />
+          {commits.length === 0 ? (
+            <p className="text-neutral-400 font-semibold">
+              There are no commits to show 😔
+            </p>
+          ) : (
+            <CommitsList commits={commits} />
+          )}
         </div>
       )}
     </div>

@@ -2,12 +2,12 @@ import React from "react";
 
 const CommitsList = ({ commits }) => {
   return (
-    <div className="font-bold text-red-400 w-full grid grid-cols-1 md:grid-cols-3 ">
+    <div className="font-bold text-red-400 w-full text-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
       {commits.map((commit) => (
         <div key={commit.id} className="">
           <div
             className="text-black font-normal flex flex-col items-start 
-          justify-start w-[450px] py-2 px-4 my-5 bg-slate-100 rounded-lg shadow-md gap-3"
+          justify-start py-2 px-4 my-5 bg-slate-100 rounded-lg shadow-md mx-3 sm:mx-6 md:mx-5"
           >
             <div className="text-left capitalize">
               <span className="text-gray-400 mr-2">Author:</span>
